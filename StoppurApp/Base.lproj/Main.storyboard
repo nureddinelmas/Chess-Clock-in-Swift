@@ -16,45 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcx-uL-Pdy">
-                                <rect key="frame" x="3" y="47" width="408" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="BFM-kd-qPI"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="First Player">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="36"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="firstPlayerClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B7N-XK-SoQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLY-yx-5Zm">
-                                <rect key="frame" x="3" y="659" width="408" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="nW8-KL-FS0"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Second Player">
-                                    <fontDescription key="titleFontDescription" name="GeezaPro" family="Geeza Pro" pointSize="36"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="secondPlayerClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ggm-Gc-hdv"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwC-3t-J4e">
-                                <rect key="frame" x="3" y="249" width="408" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To start, please touch the screen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwC-3t-J4e">
+                                <rect key="frame" x="10" y="54" width="401" height="798"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="E7u-Bc-l6Y"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIh-nN-HjD">
-                                <rect key="frame" x="3" y="549" width="408" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="F3z-fs-frU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="53"/>
                                 <nil key="textColor"/>
@@ -63,30 +28,30 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="uwC-3t-J4e" firstAttribute="top" secondItem="Qcx-uL-Pdy" secondAttribute="bottom" constant="2" id="7EM-WL-vLb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uwC-3t-J4e" secondAttribute="bottom" constant="10" id="7VD-YS-UX8"/>
                             <constraint firstItem="uwC-3t-J4e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="3" id="EGF-4I-C5c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lIh-nN-HjD" secondAttribute="trailing" constant="3" id="Hnf-U8-lFi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WLY-yx-5Zm" secondAttribute="trailing" constant="3" id="JXo-CY-h0C"/>
-                            <constraint firstItem="Qcx-uL-Pdy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="3" id="M2X-5T-Nco"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qcx-uL-Pdy" secondAttribute="trailing" constant="3" id="Mjs-bI-Asr"/>
-                            <constraint firstItem="lIh-nN-HjD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="3" id="N0p-ev-lbJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WLY-yx-5Zm" secondAttribute="bottom" constant="3" id="QeV-RR-kjj"/>
-                            <constraint firstItem="Qcx-uL-Pdy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="3" id="RBL-uP-T5d"/>
-                            <constraint firstItem="WLY-yx-5Zm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="3" id="cHj-WA-Cx3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uwC-3t-J4e" secondAttribute="trailing" constant="10" id="VNp-Tm-Zd0"/>
+                            <constraint firstItem="uwC-3t-J4e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="VQI-kB-ftw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uwC-3t-J4e" secondAttribute="trailing" constant="3" id="dTN-2l-ZMs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uwC-3t-J4e" secondAttribute="trailing" constant="3" id="owS-og-koo"/>
-                            <constraint firstItem="WLY-yx-5Zm" firstAttribute="top" secondItem="lIh-nN-HjD" secondAttribute="bottom" constant="10" id="pxE-pe-KXI"/>
+                            <constraint firstItem="uwC-3t-J4e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="xzz-ye-mrb"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="xem-rU-J07" appends="YES" id="Ebr-O0-51g"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="firstPlayerButton" destination="Qcx-uL-Pdy" id="xOy-5d-uCd"/>
                         <outlet property="firstTimeLabel" destination="uwC-3t-J4e" id="lvB-e1-tkO"/>
-                        <outlet property="secondPlayerButton" destination="WLY-yx-5Zm" id="oq6-X8-c2z"/>
-                        <outlet property="secondTimeLabel" destination="lIh-nN-HjD" id="QXh-d0-wao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xem-rU-J07">
+                    <connections>
+                        <action selector="onTap:" destination="BYZ-38-t0r" id="MRw-Jm-ufJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="65.625"/>
         </scene>

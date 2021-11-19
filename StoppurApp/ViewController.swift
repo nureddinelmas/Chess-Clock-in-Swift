@@ -10,93 +10,84 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var firstTimeLabel: UILabel!
-    @IBOutlet weak var secondTimeLabel: UILabel!
+   
     
-    @IBOutlet weak var secondPlayerButton: UIButton!
-    @IBOutlet weak var firstPlayerButton: UIButton!
     
-    var countForFirstPlayer = 10
-    var numberOfquene = true
-    var countForSecondPlayer = 10
+    let formatter = DateFormatter()
+    var timer : Timer?
     
-    var timer = Timer()
+    let startTime = 60.0
+    
+    var player1time = 0.0
+    var player2time = 0.0
+    
+    var player1active = true
+    
+    var lastTime = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+    }
+
+
+
+ 
+    @IBAction func onTap(_ sender: UITapGestureRecognizer) {
+        if timer != nil {
+            switchPlayer()
+        } else {
+            startClock()
+        }
     }
     
-    func firstPlayerClicked (){
-        
-        if numberOfquene {
+    func switchPlayer(){
+        player1active.toggle()
+        updateTime()
+    }
 
-            if firstPlayerButton.titleLabel?.text == "STOP"{
-                numberOfquene = false
-                timer.invalidate()
-                firstPlayerButton.setTitle("First Player", for: .normal)
-                secondPlayerButton.isEnabled = true
-                firstPlayerButton.isEnabled = false
-            } else if firstPlayerButton.titleLabel?.text == "First Player" {
-                secondPlayerButton.isEnabled = false
-                firstPlayerButton.setTitle("STOP", for: .normal)
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounterForFirst), userInfo: nil, repeats: true)
-            }
+
+    func resetPlayerTime(){
+        player1time = startTime
+        player2time = startTime
+    }
+    
+    func startClock(){
+        resetPlayerTime()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: updateTime(timer:))
+        lastTime = Date()
+    }
+    
+    func updateTime(timer: Timer? = nil){
+        let newTime = Date()
+        let deltaTime = newTime.timeIntervalSince(lastTime)
+        
+        if player1active {
+            player1time -= deltaTime
+        }else{
+            player2time -= deltaTime
         }
+        updateTimeLabel()
+        
+        if player2time < 0 || player1time < 0 {
+            timer?.invalidate()
+        }
+        
+        lastTime = newTime
+    }
+    
+   
+    
+    
+   func updateTimeLabel (){
+        let newTimeLabel = "\(String(format: "%.1f", player1time))   :   \(String(format: "%.1f", player2time))"
        
-        
+       firstTimeLabel.text = newTimeLabel
     }
     
-    @objc func timerCounterForFirst () -> Void {
-        if countForFirstPlayer != 0 {
-            countForFirstPlayer = countForFirstPlayer - 1
-            firstTimeLabel.text = toString(count: countForFirstPlayer)
-        }else{
-            countForFirstPlayer = 10
-            firstPlayerButton.setTitle("First Player", for: .init())
-            secondPlayerButton.setTitle("Second Player", for: .init())
-        }
+    deinit{
+        timer?.invalidate()
     }
-    
-    @IBAction func secondPlayerClicked(_ sender: UIButton) {
-        if !numberOfquene {
-            if secondPlayerButton.titleLabel?.text == "STOP"{
-                numberOfquene = true
-                timer.invalidate()
-                secondPlayerButton.setTitle("Second Player", for: .normal)
-                firstPlayerButton.isEnabled = true
-                secondPlayerButton.isEnabled = false
-            } else if secondPlayerButton.titleLabel?.text == "Second Player" {
-                firstPlayerButton.isEnabled = false
-                
-                secondPlayerButton.setTitle("STOP", for: .normal)
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounterForSecond), userInfo: nil, repeats: true)
-            }
-        }
-        
-    }
-    
-    @objc func timerCounterForSecond () -> Void {
-        if countForSecondPlayer != 0 {
-            countForSecondPlayer = countForSecondPlayer - 1
-            secondTimeLabel.text = toString(count: countForSecondPlayer)
-        }else{
-            firstPlayerButton.setTitle("First Player", for: .init())
-            secondPlayerButton.setTitle("Second Player", for: .init())
-        }
-    }
-    
-    
-    @IBAction func firstPlayerClicked(_ sender: Any) {
-      firstPlayerClicked()
-    }
-    
-    func toString (count : Int) -> String {
-        let min : Int = count / 60
-        let sec : Int = Int(count % 60)
-        return "\(min) : \(sec)"
-    }
-    
-    
-
 }
 
